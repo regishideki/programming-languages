@@ -28,3 +28,12 @@ fun number_in_month(dates : (int*int*int) list, month : int) =
       in
           increment + number_in_month((tl dates), month)
       end
+
+fun number_in_months(dates : (int*int*int) list, months : int list) =
+  if null months then 0
+  else
+      let
+          val current_month = hd months
+      in
+          number_in_month(dates, current_month) + number_in_months(dates, (tl months))
+      end
