@@ -17,3 +17,14 @@ fun is_older(date1 : int*int*int, date2 : int*int*int) =
           older_year orelse (same_year andalso older_month) orelse (same_month andalso older_day)
       end
   end
+
+fun number_in_month(dates : (int*int*int) list, month : int) =
+  if null dates then 0
+  else
+      let
+          val current_date = hd dates
+          val current_month = #2 current_date
+          val increment = if current_month = month then 1 else 0
+      in
+          increment + number_in_month((tl dates), month)
+      end

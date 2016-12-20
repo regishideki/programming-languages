@@ -14,10 +14,11 @@ val month_of_second_is_greater = is_older((2000,1,2), (2000,2,1)) = true
 val day_of_first_is_greater = is_older((2000,1,2), (2000,1,1)) = false
 val day_of_secound_is_greater = is_older((2000,1,1), (2000,1,2)) = true
 val same_date = is_older((2000,1,1), (2000,1,1)) = false
+val test2 = number_in_month ([(2012,2,28),(2013,12,1)],2) = 1
+val months_in_the_middle = number_in_month([(2000,1,1), (1999,2,1), (1998,2,1), (2001,1,1)],2) = 2
+val months_on_the_sides = number_in_month([(2000,1,1), (1999,2,1), (1998,2,1), (2001,1,1)],1) = 2
 
 (*
-val test2 = number_in_month ([(2012,2,28),(2013,12,1)],2) = 1
-
 val test3 = number_in_months ([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = 3
 
 val test4 = dates_in_month ([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
