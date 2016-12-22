@@ -51,8 +51,7 @@ previous problem and SML’s list-append operator (@).
 *)
 val test5 = dates_in_months ([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) =
             [(2012,2,28),(2011,3,31),(2011,4,28)]
-val test5a = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4])
-
+            
 (*
 Write a function get_nth that takes a list of strings and an int n and returns the nth element of the
 list where the head of the list is 1st. Do not worry about the case where the list has too few elements:
