@@ -51,14 +51,15 @@ previous problem and SML’s list-append operator (@).
 *)
 val test5 = dates_in_months ([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) =
             [(2012,2,28),(2011,3,31),(2011,4,28)]
-            
+
 (*
 Write a function get_nth that takes a list of strings and an int n and returns the nth element of the
 list where the head of the list is 1st. Do not worry about the case where the list has too few elements:
 your function may apply hd or tl to the empty list in this case, which is okay.
-
+*)
 val test6 = get_nth (["hi", "there", "how", "are", "you"], 2) = "there"
 
+(*
 Write a function date_to_string that takes a date and returns a string of the form January 20, 2013
 (for example). Use the operator ^ for concatenating strings and the library function Int.toString
 for converting an int to a string. For producing the month part, do not use a bunch of conditionals.
