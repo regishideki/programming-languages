@@ -66,10 +66,10 @@ for converting an int to a string. For producing the month part, do not use a bu
 Instead, use a list holding 12 strings and your answer to the previous problem. For consistency, put a
 comma following the day and use capitalized English month names: January, February, March, April,
 May, June, July, August, September, October, November, December.
-
+*)
 val test7 = date_to_string (2013, 6, 1) = "June 1, 2013"
 
-
+(*
 Write a function number_before_reaching_sum that takes an int called sum, which you can assume
 is positive, and an int list, which you can assume contains all positive numbers, and returns an int.
 You should return an int n such that the first n elements of the list add to less than sum, but the first

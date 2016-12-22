@@ -55,3 +55,12 @@ fun dates_in_months(dates : (int*int*int) list, months : int list) =
 fun get_nth(words : string list, n : int) =
   if n = 1 then hd words
   else get_nth(tl words, n - 1)
+
+fun date_to_string(year : int, month : int, day : int) =
+  let
+    val months_names = ["January", "February", "March", "April", "May", "June", "July", 
+                        "August", "Septemter", "October", "November", "December"]
+    val month_name = get_nth(months_names, month)
+  in
+    month_name ^ " " ^ Int.toString(day) ^ ", " ^ Int.toString(year)
+  end
