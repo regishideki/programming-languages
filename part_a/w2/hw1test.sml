@@ -43,7 +43,6 @@ contain dates in the order they were originally given.
 val test4 = dates_in_month ([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
 val with_more_than_one_result = dates_in_month ([(2012,2,28),(2013,12,1),(2013,2,1)],2) = [(2012,2,28),(2013,2,1)]
 
-
 (*
 Write a function dates_in_months that takes a list of dates and a list of months (i.e., an int list)
 and returns a list holding the dates from the argument list of dates that are in any of the months in
@@ -52,6 +51,7 @@ previous problem and SML’s list-append operator (@).
 *)
 val test5 = dates_in_months ([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) =
             [(2012,2,28),(2011,3,31),(2011,4,28)]
+val test5a = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4])
 
 (*
 Write a function get_nth that takes a list of strings and an int n and returns the nth element of the
