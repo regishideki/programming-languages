@@ -75,10 +75,10 @@ is positive, and an int list, which you can assume contains all positive numbers
 You should return an int n such that the first n elements of the list add to less than sum, but the first
 n + 1 elements of the list add to sum or more. Assume the entire list sums to more than the passed in
 value; it is okay for an exception to occur if this is not the case.
-
-
+*)
 val test8 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
 
+(*
 Write a function what_month that takes a day of year (i.e., an int between 1 and 365) and returns
 what month that day is in (1 for January, 2 for February, etc.). Use a list holding 12 integers and your
 answer to the previous problem.
