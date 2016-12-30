@@ -76,3 +76,10 @@ fun number_before_reaching_sum(sum : int, numbers : int list) =
   in
     aux(numbers, 0, 0)
   end
+
+fun what_month(day : int) =
+  let
+    val months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  in
+    number_before_reaching_sum(day, months) + 1
+  end

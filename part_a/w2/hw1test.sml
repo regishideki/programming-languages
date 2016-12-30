@@ -77,14 +77,18 @@ n + 1 elements of the list add to sum or more. Assume the entire list sums to mo
 value; it is okay for an exception to occur if this is not the case.
 *)
 val test8 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
+val when_the_sum_is_greater = number_before_reaching_sum (10, [1,2,3,10,20]) = 3
 
 (*
 Write a function what_month that takes a day of year (i.e., an int between 1 and 365) and returns
 what month that day is in (1 for January, 2 for February, etc.). Use a list holding 12 integers and your
 answer to the previous problem.
-
+*)
 val test9 = what_month 70 = 3
+val when_is_last_day_of_month = what_month 31 = 1
+val when_is_first_day_of_month = what_month 32 = 2
 
+(*
 Write a function month_range that takes two days of the year day1 and day2 and returns an int list
 [m1,m2,...,mn] where m1 is the month of day1, m2 is the month of day1+1, ..., and mn is the month
 of day day2. Note the result will have length day2 - day1 + 1 or length 0 if day1>day2.
