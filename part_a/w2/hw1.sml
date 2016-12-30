@@ -67,12 +67,12 @@ fun date_to_string(year : int, month : int, day : int) =
 
 fun number_before_reaching_sum(sum : int, numbers : int list) =
   let
-    fun aux(sum: int, numbers : int list, acc : int, n : int) =
+    fun aux(numbers : int list, acc : int, n : int) =
       let
         val current_number = hd numbers
       in
-        if acc >= sum then n - 1 else aux(sum, (tl numbers), acc + current_number, n + 1)
+        if acc >= sum then n - 1 else aux((tl numbers), acc + current_number, n + 1)
       end
   in
-    aux(sum, numbers, 0, 0)
+    aux(numbers, 0, 0)
   end
