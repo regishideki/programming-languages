@@ -87,3 +87,20 @@ fun what_month(day : int) =
 fun month_range(day1 : int, day2 : int) =
   if day1 > day2 then [] 
   else what_month(day1)::month_range(day1 + 1, day2)
+
+fun oldest(dates : (int*int*int) list) =
+  if null dates then NONE
+  else 
+    let
+      fun aux(dates : (int*int*int) list, max_date) =
+        if null dates then max_date
+        else 
+          let
+            val current_date = (hd dates) 
+          in
+            if is_older(max_date, current_date) then aux((tl dates), max_date)
+            else aux((tl dates), current_date)
+          end
+    in
+      SOME (aux((tl dates), (hd dates)))
+    end
