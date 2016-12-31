@@ -56,18 +56,8 @@ fun date_to_string(year : int, month : int, day : int) =
   end
 
 fun number_before_reaching_sum(sum : int, numbers : int list) =
-  let
-    fun aux(numbers : int list, acc : int, n : int) =
-      let
-        val current_number = hd numbers
-      in
-        if acc >= sum then n - 1 
-        else if null (tl numbers) then n
-        else aux(tl numbers, acc + current_number, n + 1)
-      end
-  in
-    aux(numbers, 0, 0)
-  end
+  if sum <= hd numbers then 0
+  else 1 + number_before_reaching_sum(sum - hd numbers, tl numbers)
 
 fun what_month(day : int) =
   let
