@@ -78,6 +78,8 @@ value; it is okay for an exception to occur if this is not the case.
 *)
 val test8 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
 val when_the_sum_is_greater = number_before_reaching_sum (10, [1,2,3,10,20]) = 3
+val when_the_last_element_is_included = number_before_reaching_sum (1, [1]) = 0
+(*val when_simulating_when_month = number_before_reaching_sum(365, [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])*)
 
 (*
 Write a function what_month that takes a day of year (i.e., an int between 1 and 365) and returns
@@ -87,6 +89,7 @@ answer to the previous problem.
 val test9 = what_month 70 = 3
 val when_is_last_day_of_month = what_month 31 = 1
 val when_is_first_day_of_month = what_month 32 = 2
+val when_is_last_day_of_year = what_month 365
 
 (*
 Write a function month_range that takes two days of the year day1 and day2 and returns an int list
@@ -96,6 +99,19 @@ of day day2. Note the result will have length day2 - day1 + 1 or length 0 if day
 val test10 = month_range (31, 34) = [1,2,2,2]
 val when_day1_greater_than_day2 = month_range (35, 34) = []
 val when_days_are_equal = month_range (35, 35) = [2]
+val all_days = month_range(1, 365) = 
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+   2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+   3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+   4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+   5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+   6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+   7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,
+   8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+   9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,
+   10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,
+   11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,
+   12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12] 
 
 (*
 Write a function oldest that takes a list of dates and evaluates to an (int*int*int) option. It
