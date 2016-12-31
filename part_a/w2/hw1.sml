@@ -26,23 +26,18 @@ fun number_in_month(dates : (int*int*int) list, month : int) =
       val current_month = #2 current_date
       val increment = if current_month = month then 1 else 0
     in
-      increment + number_in_month((tl dates), month)
+      increment + number_in_month(tl dates, month)
     end
 
 fun number_in_months(dates : (int*int*int) list, months : int list) =
   if null months then 0
-  else
-    let
-      val current_month = hd months
-    in
-      number_in_month(dates, current_month) + number_in_months(dates, (tl months))
-    end
+  else number_in_month(dates, hd months) + number_in_months(dates, tl months)
 
 fun dates_in_month(dates : (int*int*int) list, month : int) =
   if null dates then []
   else
-    if (#2 (hd dates)) = month then (hd dates)::dates_in_month((tl dates), month) 
-    else dates_in_month((tl dates), month)
+    if (#2 (hd dates)) = month then (hd dates)::dates_in_month(tl dates, month) 
+    else dates_in_month(tl dates, month)
 
 fun append(xs : (int*int*int) list, ys : (int*int*int) list) =
   if null xs then ys
@@ -50,7 +45,7 @@ fun append(xs : (int*int*int) list, ys : (int*int*int) list) =
 
 fun dates_in_months(dates : (int*int*int) list, months : int list) = 
   if null months then []
-  else append(dates_in_month(dates, (hd months)),dates_in_months(dates, (tl months)))
+  else append(dates_in_month(dates, hd months),dates_in_months(dates, tl months))
 
 fun get_nth(words : string list, n : int) =
   if n = 1 then hd words
@@ -73,7 +68,7 @@ fun number_before_reaching_sum(sum : int, numbers : int list) =
       in
         if acc >= sum then n - 1 
         else if null (tl numbers) then n
-        else aux((tl numbers), acc + current_number, n + 1)
+        else aux(tl numbers, acc + current_number, n + 1)
       end
   in
     aux(numbers, 0, 0)
@@ -96,13 +91,8 @@ fun oldest(dates : (int*int*int) list) =
     let
       fun aux(dates : (int*int*int) list, max_date) =
         if null dates then max_date
-        else 
-          let
-            val current_date = (hd dates) 
-          in
-            if is_older(max_date, current_date) then aux((tl dates), max_date)
-            else aux((tl dates), current_date)
-          end
+        else if is_older(max_date, hd dates) then aux(tl dates, max_date)
+        else aux(tl dates, hd dates)
     in
-      SOME (aux((tl dates), (hd dates)))
+      SOME (aux(tl dates, hd dates))
     end
