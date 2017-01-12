@@ -4,9 +4,20 @@
    string), then you avoid several of the functions in problem 1 having
    polymorphic types that may be confusing *)
 fun same_string(s1 : string, s2 : string) =
-    s1 = s2
+  s1 = s2
 
 (* put your solutions for problem 1 here *)
+fun all_except_option(word, list) =
+  let
+    fun aux(list) =
+      case list of 
+          [] => []
+        | x::xs => if same_string(x, word) then aux(xs) else x::aux(xs)
+    val result = aux(list)
+    val word_was_found = length(result) <> length(list)
+  in
+    if word_was_found then SOME(result) else NONE 
+  end
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
@@ -18,5 +29,4 @@ datatype color = Red | Black
 datatype move = Discard of card | Draw
 
 exception IllegalMove
-
 (* put your solutions for problem 2 here *)

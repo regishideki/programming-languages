@@ -1,10 +1,20 @@
-(* Homework2 Simple Test *)
+(*Homework2 Simple Test *)
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)
 (* To run the test, add a new line to the top of this file: use "homeworkname.sml"; *)
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
+use "./hw2.sml";
 
-val test1 = all_except_option ("string", ["string"]) = SOME []
+(*
+Write a function all_except_option, which takes a string and a string list. Return NONE if the
+string is not in the list, else return SOME lst where lst is identical to the argument list except the string
+is not in it. You may assume the string is in the list at most once. Use same_string, provided to you,
+to compare strings. Sample solution is around 8 lines.
+*)
+val test1 = all_except_option("string", ["string"]) = SOME []
+val when_string_is_not_found = all_except_option("banana", ["apple"]) = NONE
+val when_string_is_the_middle = all_except_option("banana", ["apple", "banana", "melon"]) = SOME ["apple", "melon"]
 
+(*
 val test2 = get_substitutions1 ([["foo"],["there"]], "foo") = []
 
 val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
@@ -35,7 +45,6 @@ val test12 = officiate ([(Clubs,Ace),(Spades,Ace),(Clubs,Ace),(Spades,Ace)],
 val test13 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
                          [Draw,Discard(Hearts,Jack)],
                          42);
-               false) 
+               false)
               handle IllegalMove => true)
-             
-             
+*)
