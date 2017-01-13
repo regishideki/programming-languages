@@ -28,11 +28,8 @@ fun get_substitutions1(list_of_lists, word) =
           case all_except_option(word, x) of 
               NONE => []
             | SOME(list) => list
-        val list_has_word = x <> list_without_word
       in
-        if list_has_word
-        then list_without_word @ get_substitutions1(xs, word)
-        else get_substitutions1(xs, word)
+        list_without_word @ get_substitutions1(xs, word)
       end
 
 (* you may assume that Num is always used with values 2, 3, ..., 10

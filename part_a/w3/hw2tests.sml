@@ -1,4 +1,4 @@
-(*Homework2 Simple Test *)
+(* Homework2 Simple Test *)
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)
 (* To run the test, add a new line to the top of this file: use "homeworkname.sml"; *)
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
@@ -51,8 +51,12 @@ val when_inside_lists_has_more_elements =
 (*
 (c) Write a function get_substitutions2, which is like get_substitutions1 except it uses a tail-recursive
 local helper function.
-val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
-
+*)
+(*val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
+val when_inside_lists_has_more_elements_and_use_tail_recursion = 
+  get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
+  ["Fredrick","Freddie","F"]*)
+(*
 (d) Write a function similar_names, which takes a string list list of substitutions (as in parts (b) and
 (c)) and a full name of type {first:string,middle:string,last:string} and returns a list of full
 names (type {first:string,middle:string,last:string} list). The result is all the full names you
