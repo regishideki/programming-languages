@@ -20,17 +20,12 @@ fun all_except_option(word, list) =
   end
 
 fun get_substitutions1(list_of_lists, word) =
-  case list_of_lists of 
+  case list_of_lists of
       [] => []
     | x::xs => 
-      let
-        val list_without_word = 
-          case all_except_option(word, x) of 
-              NONE => []
-            | SOME(list) => list
-      in
-        list_without_word @ get_substitutions1(xs, word)
-      end
+      case all_except_option(word, x) of 
+          NONE => get_substitutions1(xs, word)
+        | SOME(list) => list @ get_substitutions1(xs, word)
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
