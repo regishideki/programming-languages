@@ -52,10 +52,10 @@ val when_inside_lists_has_more_elements =
 (c) Write a function get_substitutions2, which is like get_substitutions1 except it uses a tail-recursive
 local helper function.
 *)
-(*val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
+val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
 val when_inside_lists_has_more_elements_and_use_tail_recursion = 
   get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
-  ["Fredrick","Freddie","F"]*)
+  ["Fredrick","Freddie","F"]
 (*
 (d) Write a function similar_names, which takes a string list list of substitutions (as in parts (b) and
 (c)) and a full name of type {first:string,middle:string,last:string} and returns a list of full

@@ -27,6 +27,19 @@ fun get_substitutions1(list_of_lists, word) =
           NONE => get_substitutions1(xs, word)
         | SOME(list) => list @ get_substitutions1(xs, word)
 
+fun get_substitutions2(list_of_lists, word) =
+  let
+    fun aux(list_of_lists, word, acc) = 
+      case list_of_lists of
+          [] => acc
+        | x::xs => 
+          case all_except_option(word, x) of 
+              NONE => aux(xs, word, acc)
+            | SOME(list) => aux(xs, word, acc @ list)
+  in
+    aux(list_of_lists, word, [])
+  end
+  
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
 datatype suit = Clubs | Diamonds | Hearts | Spades
