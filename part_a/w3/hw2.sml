@@ -14,10 +14,26 @@ fun all_except_option(word, list) =
           [] => []
         | x::xs => if same_string(x, word) then aux(xs) else x::aux(xs)
     val result = aux(list)
-    val word_was_found = length(result) <> length(list)
+    val word_was_found = result <> list
   in
     if word_was_found then SOME(result) else NONE 
   end
+
+fun get_substitutions1(list_of_lists, word) =
+  case list_of_lists of 
+      [] => []
+    | x::xs => 
+      let
+        val list_without_word = 
+          case all_except_option(word, x) of 
+              NONE => []
+            | SOME(list) => list
+        val list_has_word = x <> list_without_word
+      in
+        if list_has_word
+        then list_without_word @ get_substitutions1(xs, word)
+        else get_substitutions1(xs, word)
+      end
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)

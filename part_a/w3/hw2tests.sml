@@ -40,13 +40,14 @@ some list in substitutions that also has s, but s itself should not be in the re
   answer: ["Fredrick","Freddie","F"]
 Assume each list in substitutions has no repeats. The result will have repeats if s and another string are
 both in more than one list in substitutions. Example:
-get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]],
-"Jeff")
+  get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]], "Jeff")
   answer: ["Jeffrey","Geoff","Jeffrey"]
 Use part (a) and ML’s list-append (@) but no other helper functions. Sample solution is around 6 lines.
 *)
 val test2 = get_substitutions1 ([["foo"],["there"]], "foo") = []
-
+val when_inside_lists_has_more_elements = 
+  get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
+  ["Fredrick","Freddie","F"]
 (*
 (c) Write a function get_substitutions2, which is like get_substitutions1 except it uses a tail-recursive
 local helper function.
