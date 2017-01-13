@@ -93,11 +93,11 @@ val test5 = card_color (Clubs, Num 2) = Black
 substitutions) and a string s and returns a string list. The result has all the strings that are in
 some list in substitutions that also has s, but s itself should not be in the result. Example:
   get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred")
-  answer: ["Fredrick","Freddie","F"] *)
+  answer: ["Fredrick","Freddie","F"]
 Assume each list in substitutions has no repeats. The result will have repeats if s and another string are
 both in more than one list in substitutions. Example:
   get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]], "Jeff")
-  answer: ["Jeffrey","Geoff","Jeffrey"] *)
+  answer: ["Jeffrey","Geoff","Jeffrey"]
 Use part (a) and ML’s list-append (@) but no other helper functions. Sample solution is around 6 lines.
 val test6 = card_value (Clubs, Num 2) = 2
 
