@@ -39,7 +39,18 @@ fun get_substitutions2(list_of_lists, word) =
   in
     aux(list_of_lists, word, [])
   end
-  
+
+fun similar_names(list_of_lists, {first, middle, last}) =
+  let
+    val names = get_substitutions2(list_of_lists, first)
+    fun full_names(names, acc) =
+      case names of
+          [] => acc
+        | x::xs => full_names(xs, acc @ [{first=x, middle=middle, last=last}])
+  in
+    full_names(names, [{first=first, middle=middle, last=last}])
+  end
+
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
 datatype suit = Clubs | Diamonds | Hearts | Spades

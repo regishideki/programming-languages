@@ -70,11 +70,11 @@ similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]]
   {first="F", last="Smith", middle="W"}]
 Do not eliminate duplicates from the answer. Hint: Use a local helper function. Sample solution is
 around 10 lines.
+*)
 val test4 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
         [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
          {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
-
-
+(*
 2. You will write 11 SML functions (not counting local helper functions), 4 related to “name substitutions”
 and 7 related to a made-up solitaire card game.
 Your solutions must use pattern-matching. You may not use the functions null, hd, tl, isSome, or valOf,
