@@ -74,6 +74,7 @@ around 10 lines.
 val test4 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
         [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
          {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
+
 (*
 2. This problem involves a solitaire card game invented just for this question. You will write a program that
 tracks the progress of a game; writing a game player is a challenge problem. You can do parts (a)–(e) before
@@ -88,11 +89,14 @@ of the values of the held-cards. If sum is greater than goal, the preliminary sc
 else the preliminary score is (goal − sum). The score is the preliminary score unless all the held-cards are
 the same color, in which case the score is the preliminary score divided by 2 (and rounded down as usual
 with integer division; use ML’s div operator).
+*)
 
+(*
 (a) Write a function card_color, which takes a card and returns its color (spades and clubs are black,
 diamonds and hearts are red). Note: One case-expression is enough.
+*)
 val test5 = card_color (Clubs, Num 2) = Black
-
+(*
 (b) Write a function card_value, which takes a card and returns its value (numbered cards hav
 val test6 = card_value (Clubs, Num 2) = 2
 
