@@ -75,35 +75,25 @@ val test4 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie"
         [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
          {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
 (*
-2. You will write 11 SML functions (not counting local helper functions), 4 related to “name substitutions”
-and 7 related to a made-up solitaire card game.
-Your solutions must use pattern-matching. You may not use the functions null, hd, tl, isSome, or valOf,
-nor may you use anything containing a # character or features not used in class (such as mutation). Note
-that list order does not matter unless specifically stated in the problem.
-Download hw2provided.sml from the course website. The provided code defines several types for you. You
-will not need to add any additional datatype bindings or type synonyms.
-The sample solution, not including challenge problems, is roughly 130 lines, including the provided code.
-Do not miss the “Important Caveat” and “Assessment” after the “Type Summary.”
-1. This problem involves using first-name substitutions to come up with alternate names. For example,
-Fredrick William Smith could also be Fred William Smith or Freddie William Smith. Only part (d) is
-specifically about this, but the other problems are helpful.
+2. This problem involves a solitaire card game invented just for this question. You will write a program that
+tracks the progress of a game; writing a game player is a challenge problem. You can do parts (a)–(e) before
+understanding the game if you wish.
+A game is played with a card-list and a goal. The player has a list of held-cards, initially empty. The player
+makes a move by either drawing, which means removing the first card in the card-list from the card-list and
+adding it to the held-cards, or discarding, which means choosing one of the held-cards to remove. The game
+ends either when the player chooses to make no more moves or when the sum of the values of the held-cards
+is greater than the goal.
+The objective is to end the game with a low score (0 is best). Scoring works as follows: Let sum be the sum
+of the values of the held-cards. If sum is greater than goal, the preliminary score is three times (sum − goal),
+else the preliminary score is (goal − sum). The score is the preliminary score unless all the held-cards are
+the same color, in which case the score is the preliminary score divided by 2 (and rounded down as usual
+with integer division; use ML’s div operator).
 
-(a) Write a function all_except_option, which takes a string and a string list. Return NONE if the
-string is not in the list, else return SOME lst where lst is identical to the argument list except the string
-is not in it. You may assume the string is in the list at most once. Use same_string, provided to you,
-to compare strings. Sample solution is around 8 lines.
+(a) Write a function card_color, which takes a card and returns its color (spades and clubs are black,
+diamonds and hearts are red). Note: One case-expression is enough.
 val test5 = card_color (Clubs, Num 2) = Black
 
-(b) Write a function get_substitutions1, which takes a string list list (a list of list of strings, the
-substitutions) and a string s and returns a string list. The result has all the strings that are in
-some list in substitutions that also has s, but s itself should not be in the result. Example:
-  get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred")
-  answer: ["Fredrick","Freddie","F"]
-Assume each list in substitutions has no repeats. The result will have repeats if s and another string are
-both in more than one list in substitutions. Example:
-  get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]], "Jeff")
-  answer: ["Jeffrey","Geoff","Jeffrey"]
-Use part (a) and ML’s list-append (@) but no other helper functions. Sample solution is around 6 lines.
+(b) Write a function card_value, which takes a card and returns its value (numbered cards hav
 val test6 = card_value (Clubs, Num 2) = 2
 
 (c) Write a function remove_card, which takes a list of cards cs, a card c, and an exception e. It returns a
