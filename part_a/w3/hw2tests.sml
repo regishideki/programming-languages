@@ -29,8 +29,9 @@ is not in it. You may assume the string is in the list at most once. Use same_st
 to compare strings. Sample solution is around 8 lines.
 *)
 val test1 = all_except_option("string", ["string"]) = SOME []
-val when_string_is_not_found = all_except_option("banana", ["apple"]) = NONE
-val when_string_is_the_middle = all_except_option("banana", ["apple", "banana", "melon"]) = SOME ["apple", "melon"]
+val except_option_when_string_is_not_found = all_except_option("banana", ["apple"]) = NONE
+val except_option_when_string_is_the_middle = 
+    all_except_option("banana", ["apple", "banana", "melon"]) = SOME ["apple", "melon"]
 
 (*
 (b) Write a function get_substitutions1, which takes a string list list (a list of list of strings, the
@@ -44,18 +45,18 @@ both in more than one list in substitutions. Example:
   answer: ["Jeffrey","Geoff","Jeffrey"]
 Use part (a) and ML’s list-append (@) but no other helper functions. Sample solution is around 6 lines.
 *)
-val test2 = get_substitutions1 ([["foo"],["there"]], "foo") = []
+val test2 = get_substitutions1([["foo"],["there"]], "foo") = []
 val when_inside_lists_has_more_elements = 
-  get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
-  ["Fredrick","Freddie","F"]
+    get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
+    ["Fredrick","Freddie","F"]
 (*
 (c) Write a function get_substitutions2, which is like get_substitutions1 except it uses a tail-recursive
 local helper function.
 *)
 val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
 val when_inside_lists_has_more_elements_and_use_tail_recursion = 
-  get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
-  ["Fredrick","Freddie","F"]
+    get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
+    ["Fredrick","Freddie","F"]
 (*
 (d) Write a function similar_names, which takes a string list list of substitutions (as in parts (b) and
 (c)) and a full name of type {first:string,middle:string,last:string} and returns a list of full
@@ -71,9 +72,15 @@ similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]]
 Do not eliminate duplicates from the answer. Hint: Use a local helper function. Sample solution is
 around 10 lines.
 *)
-val test4 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
-        [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
-         {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
+val test4 = 
+    similar_names(
+      [["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}
+    ) = [
+      {first="Fred", last="Smith", middle="W"}, 
+      {first="Fredrick", last="Smith", middle="W"},
+      {first="Freddie", last="Smith", middle="W"}, 
+      {first="F", last="Smith", middle="W"}
+    ]
 
 (*
 2. This problem involves a solitaire card game invented just for this question. You will write a program that
@@ -95,12 +102,12 @@ with integer division; use ML’s div operator).
 (a) Write a function card_color, which takes a card and returns its color (spades and clubs are black,
 diamonds and hearts are red). Note: One case-expression is enough.
 *)
-val test5 = card_color (Clubs, Num 2) = Black
+val test5 = card_color(Clubs, Num 2) = Black
 (*
 (b) Write a function card_value, which takes a card and returns its value (numbered cards have their
 number as the value, aces are 11, everything else is 10). Note: One case-expression is enough.
 *)
-val test6 = card_value (Clubs, Num 2) = 2
+val test6 = card_value(Clubs, Num 2) = 2
 val when_card_is_ace = card_value(Clubs, Ace) = 11
 val when_card_is_nor_number_nor_ace = card_value(Clubs, Jack) = 10
 
