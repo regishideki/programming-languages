@@ -72,4 +72,4 @@ fun card_value(_, rank) =
   case rank of
       Num(value) => value
     | Ace => 11
-    | _ => 10
+    | (Jack | Queen | King) => 10
