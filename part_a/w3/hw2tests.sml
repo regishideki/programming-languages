@@ -97,9 +97,14 @@ diamonds and hearts are red). Note: One case-expression is enough.
 *)
 val test5 = card_color (Clubs, Num 2) = Black
 (*
-(b) Write a function card_value, which takes a card and returns its value (numbered cards hav
+(b) Write a function card_value, which takes a card and returns its value (numbered cards have their
+number as the value, aces are 11, everything else is 10). Note: One case-expression is enough.
+*)
 val test6 = card_value (Clubs, Num 2) = 2
+val when_card_is_ace = card_value(Clubs, Ace) = 11
+val when_card_is_nor_number_nor_ace = card_value(Clubs, Jack) = 10
 
+(*
 (c) Write a function remove_card, which takes a list of cards cs, a card c, and an exception e. It returns a
 list that has all the elements of cs except c. If c is in the list more than once, remove only the first one.
 If c is not in the list, raise the exception e. You can compare cards with =.
