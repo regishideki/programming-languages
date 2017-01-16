@@ -73,3 +73,17 @@ fun card_value(_, rank) =
       Num(value) => value
     | Ace => 11
     | (Jack | Queen | King) => 10
+
+fun remove_card(deck, card_to_be_removed, ex) =
+  let
+    fun remove_card_from_deck(deck, already_removed) =
+      case deck of
+          [] => []
+        | x::xs => if x = card_to_be_removed andalso not already_removed
+                   then remove_card_from_deck(xs, true)
+                   else x::remove_card_from_deck(xs, already_removed)
+    val deck_with_card_removed = remove_card_from_deck(deck, false)
+    val card_was_removed = deck_with_card_removed <> deck
+  in
+    if card_was_removed then deck_with_card_removed else raise ex
+  end

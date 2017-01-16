@@ -115,8 +115,17 @@ val when_card_is_nor_number_nor_ace = card_value(Clubs, Jack) = 10
 (c) Write a function remove_card, which takes a list of cards cs, a card c, and an exception e. It returns a
 list that has all the elements of cs except c. If c is in the list more than once, remove only the first one.
 If c is not in the list, raise the exception e. You can compare cards with =.
-val test7 = remove_card ([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
+*)
+val test7 = remove_card([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
+val remove_card_when_there_are_more_than_one_in_deck = 
+    remove_card([(Hearts, Ace), (Spades, Ace)], (Hearts, Ace), IllegalMove) = [(Spades, Ace)]
+val remove_card_when_remove_a_duplicated_card = 
+    remove_card([(Hearts, Ace), (Spades, Ace), (Hearts, Ace)], (Hearts, Ace), IllegalMove) = 
+    [(Spades, Ace), (Hearts, Ace)]
+val remove_card_when_card_is_not_found = 
+    (remove_card([(Hearts, Ace)], (Spades, Ace), IllegalMove) handle IllegalMove => []) = []
 
+(*
 (d) Write a function all_same_color, which takes a list of cards and returns true if all the cards in the
 list are the same color. Hint: An elegant solution is very similar to one of the functions using nested
 pattern-matching in the lectures.
