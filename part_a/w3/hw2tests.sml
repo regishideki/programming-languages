@@ -47,16 +47,16 @@ Use part (a) and ML’s list-append (@) but no other helper functions. Sample so
 *)
 val test2 = get_substitutions1([["foo"],["there"]], "foo") = []
 val when_inside_lists_has_more_elements = 
-    get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
-    ["Fredrick","Freddie","F"]
+    get_substitutions1([["Fred", "Fredrick"], ["Elizabeth", "Betty"], ["Freddie", "Fred", "F"]], "Fred") = 
+    ["Fredrick", "Freddie", "F"]
 (*
 (c) Write a function get_substitutions2, which is like get_substitutions1 except it uses a tail-recursive
 local helper function.
 *)
-val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
+val test3 = get_substitutions2 ([["foo"], ["there"]], "foo") = []
 val when_inside_lists_has_more_elements_and_use_tail_recursion = 
-    get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = 
-    ["Fredrick","Freddie","F"]
+    get_substitutions2([["Fred", "Fredrick"], ["Elizabeth", "Betty"], ["Freddie", "Fred", "F"]], "Fred") = 
+    ["Fredrick", "Freddie", "F"]
 (*
 (d) Write a function similar_names, which takes a string list list of substitutions (as in parts (b) and
 (c)) and a full name of type {first:string,middle:string,last:string} and returns a list of full
@@ -74,7 +74,7 @@ around 10 lines.
 *)
 val test4 = 
     similar_names(
-      [["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}
+      [["Fred", "Fredrick"],["Elizabeth", "Betty"],["Freddie", "Fred", "F"]], {first="Fred", middle="W", last="Smith"}
     ) = [
       {first="Fred", last="Smith", middle="W"}, 
       {first="Fredrick", last="Smith", middle="W"},
@@ -138,12 +138,14 @@ val all_same_color_with_different_colors = all_same_color[(Hearts, Ace), (Spades
 defined helper function that is tail recursive. (Take “calls use a constant amount of stack space” as a
 requirement for this problem.)
 *)
-val test9 = sum_cards [(Clubs, Num 2),(Clubs, Num 2)] = 4
+val test9 = sum_cards[(Clubs, Num 2), (Clubs, Num 2)] = 4
 (*
 (f) Write a function score, which takes a card list (the held-cards) and an int (the goal) and computes
 the score as described above.
-val test10 = score ([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
+*)
+val test10 = score([(Hearts, Num 2), (Clubs, Num 4)], 10) = 4
 
+(*
 (g) Write a function officiate, which “runs a game.” It takes a card list (the card-list) a move list
 (what the player “does” at each point), and an int (the goal) and returns the score at the end of the
 game after processing (some or all of) the moves in the move list in order. Use a locally defined recursive
