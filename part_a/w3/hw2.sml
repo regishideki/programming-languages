@@ -101,3 +101,6 @@ fun sum_cards(cards) =
   in
     sum_cards_tail(cards, 0)
   end
+
+fun score(cards, goal) =
+  goal - sum_cards(cards)
