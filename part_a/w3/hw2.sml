@@ -91,3 +91,13 @@ fun all_same_color(deck) =
       [] => true
     | x::[] => true
     | x1::x2::xs => card_color(x1) = card_color(x2) andalso all_same_color(x2::xs)
+
+fun sum_cards(cards) =
+  let
+    fun sum_cards_tail(cards, acc) =
+      case cards of
+          [] => acc
+        | x::xs => sum_cards_tail(xs, acc + card_value(x))
+  in
+    sum_cards_tail(cards, 0)
+  end

@@ -137,8 +137,9 @@ val all_same_color_with_different_colors = all_same_color[(Hearts, Ace), (Spades
 (e) Write a function sum_cards, which takes a list of cards and returns the sum of their values. Use a locally
 defined helper function that is tail recursive. (Take “calls use a constant amount of stack space” as a
 requirement for this problem.)
+*)
 val test9 = sum_cards [(Clubs, Num 2),(Clubs, Num 2)] = 4
-
+(*
 (f) Write a function score, which takes a card list (the held-cards) and an int (the goal) and computes
 the score as described above.
 val test10 = score ([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
