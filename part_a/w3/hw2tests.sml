@@ -129,8 +129,11 @@ val remove_card_when_card_is_not_found =
 (d) Write a function all_same_color, which takes a list of cards and returns true if all the cards in the
 list are the same color. Hint: An elegant solution is very similar to one of the functions using nested
 pattern-matching in the lectures.
-val test8 = all_same_color [(Hearts, Ace), (Hearts, Ace)] = true
+*)
+val test8 = all_same_color[(Hearts, Ace), (Hearts, Ace)] = true
+val all_same_color_with_different_colors = all_same_color[(Hearts, Ace), (Spades, Ace)] = false
 
+(*
 (e) Write a function sum_cards, which takes a list of cards and returns the sum of their values. Use a locally
 defined helper function that is tail recursive. (Take “calls use a constant amount of stack space” as a
 requirement for this problem.)

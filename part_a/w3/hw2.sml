@@ -1,8 +1,7 @@
 (* Dan Grossman, Coursera PL, HW2 Provided Code *)
 
-(* if you use this function to compare two strings (returns true if the same
-   string), then you avoid several of the functions in problem 1 having
-   polymorphic types that may be confusing *)
+(* if you use this function to compare two strings (returns true if the same string), then you avoid several of the 
+  functions in problem 1 having polymorphic types that may be confusing *)
 fun same_string(s1 : string, s2 : string) =
   s1 = s2
 
@@ -51,8 +50,7 @@ fun similar_names(list_of_lists, {first, middle, last}) =
     full_names(names, [{first=first, middle=middle, last=last}])
   end
 
-(* you may assume that Num is always used with values 2, 3, ..., 10
-   though it will not really come up *)
+(* you may assume that Num is always used with values 2, 3, ..., 10 though it will not really come up *)
 datatype suit = Clubs | Diamonds | Hearts | Spades
 datatype rank = Jack | Queen | King | Ace | Num of int
 type card = suit * rank
@@ -87,3 +85,9 @@ fun remove_card(deck, card_to_be_removed, ex) =
   in
     if card_was_removed then deck_with_card_removed else raise ex
   end
+
+fun all_same_color(deck) =
+  case deck of
+      [] => true
+    | x::[] => true
+    | x1::x2::xs => card_color(x1) = card_color(x2) andalso all_same_color(x2::xs)
