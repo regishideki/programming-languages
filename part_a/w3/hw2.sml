@@ -72,22 +72,22 @@ fun card_value(_, rank) =
     | Ace => 11
     | (Jack | Queen | King) => 10
 
-fun remove_card(deck, card_to_be_removed, ex) =
+fun remove_card(cards, card_to_be_removed, ex) =
   let
-    fun remove_card_from_deck(deck, already_removed) =
-      case deck of
+    fun remove_card_from_cards(cards, already_removed) =
+      case cards of
           [] => []
         | x::xs => if x = card_to_be_removed andalso not already_removed
-                   then remove_card_from_deck(xs, true)
-                   else x::remove_card_from_deck(xs, already_removed)
-    val deck_with_card_removed = remove_card_from_deck(deck, false)
-    val card_was_removed = deck_with_card_removed <> deck
+                   then remove_card_from_cards(xs, true)
+                   else x::remove_card_from_cards(xs, already_removed)
+    val cards_with_card_removed = remove_card_from_cards(cards, false)
+    val card_was_removed = cards_with_card_removed <> cards
   in
-    if card_was_removed then deck_with_card_removed else raise ex
+    if card_was_removed then cards_with_card_removed else raise ex
   end
 
-fun all_same_color(deck) =
-  case deck of
+fun all_same_color(cards) =
+  case cards of
       [] => true
     | x::[] => true
     | x1::x2::xs => card_color(x1) = card_color(x2) andalso all_same_color(x2::xs)
