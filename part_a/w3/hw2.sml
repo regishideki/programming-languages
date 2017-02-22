@@ -104,3 +104,25 @@ fun sum_cards(cards) =
 
 fun score(cards, goal) =
   goal - sum_cards(cards)
+
+fun officiate(deck, moves, goal) =
+  let
+    fun game(deck, moves, held_cards) =
+      case moves of
+          [] => score(held_cards, goal)
+        | current_move::remaining_moves =>
+          case current_move of
+              Draw => case deck of
+                  [] => score(held_cards, goal)
+                | deck_card::remaining_deck_cards => 
+                  if sum_cards(deck_card::held_cards) > goal then score(held_cards, goal)
+                  else game(remaining_deck_cards, remaining_moves, deck_card::held_cards)
+            | Discard(card) => 
+              let
+                val new_held_cards = remove_card(held_cards, card, IllegalMove)
+              in
+                game(deck, remaining_moves, new_held_cards)
+              end
+  in
+    game(deck, moves, [])
+  end
